@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>gonzoweb blog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link href="/theme/css/main.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="nav mb-5 px-5 py-3">
+            <a class="nav-link text-muted" href="/">Blog</a>
+            <a class="nav-link text-muted" href="/about.html">About</a>
+        </nav>
+        <div class="container col-8 mx-auto">
+
+<h1>docker образы python</h1>
+<label class="mb-5">Sat 16 May 2020</label>
+<p>вчера поэкспериментировал с докеровскими образами питона.</p>
+<p>есть стандартный образ <strong>python:3.8</strong> условно, с ним образ приложения весит 1Гиг бля.</p>
+<p>попробовал <strong>python:3.8-alpine</strong> — сам образ питона аля 60Метров, но сборка не взлетела, в нём не хватает линуксовых завимостей, то есть когда начинаются ставиться питоновские сторонние пакеты для приложухи, то всё крашится, потому-что нет каких-то линуксовых зависимостей в этом образе, а ставить их тоже затея хз, они могут за собой потянуть ещё и ещё на таком маленьком образе.</p>
+<p>в итоге попробовал <strong>python:3.8-slim</strong> и всё взлетело без лишнего пука —  вес образа с приложением 294Метра, собирается на ssd за 15сек.</p>
+<h4>короче мораль такая</h4>
+<p>если в проекте используется только стандартная питоновская библиотека или обертки над ней, то можно юзать <strong>alpine</strong>.</p>
+<p>если есть какие-то зависимости, но их не так чтобы до хуя, то можно попробовать <strong>slim</strong>.</p>
+<p>если крупный проект с овердохуя зависимостями, то <strong>стандартный образ</strong>.</p>
+<h5>#docker #python</h5>
+<p><a href="https://hub.docker.com/_/python">Dockerhub python</a></p>
+
+        </div>
+    </body>
+
+</html>

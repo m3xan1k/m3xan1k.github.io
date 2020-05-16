@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>gonzoweb blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2020-05-16T00:00:00+03:00</updated><entry><title>docker образы python</title><link href="/python-docker-images-16-05-2020.html" rel="alternate"></link><published>2020-05-16T00:00:00+03:00</published><updated>2020-05-16T00:00:00+03:00</updated><author><name>m3xan1k</name></author><id>tag:None,2020-05-16:/python-docker-images-16-05-2020.html</id><summary type="html">&lt;p&gt;вчера поэкспериментировал с докеровскими образами питона.&lt;/p&gt;
+&lt;p&gt;есть стандартный образ &lt;strong&gt;python:3.8&lt;/strong&gt; условно, с ним образ приложения весит 1Гиг бля.&lt;/p&gt;
+&lt;p&gt;попробовал &lt;strong&gt;python:3.8-alpine&lt;/strong&gt; — сам образ питона аля 60Метров, но сборка не взлетела, в нём не хватает линуксовых завимостей, то есть когда начинаются ставиться питоновские сторонние пакеты для приложухи, то …&lt;/p&gt;</summary><content type="html">&lt;p&gt;вчера поэкспериментировал с докеровскими образами питона.&lt;/p&gt;
+&lt;p&gt;есть стандартный образ &lt;strong&gt;python:3.8&lt;/strong&gt; условно, с ним образ приложения весит 1Гиг бля.&lt;/p&gt;
+&lt;p&gt;попробовал &lt;strong&gt;python:3.8-alpine&lt;/strong&gt; — сам образ питона аля 60Метров, но сборка не взлетела, в нём не хватает линуксовых завимостей, то есть когда начинаются ставиться питоновские сторонние пакеты для приложухи, то всё крашится, потому-что нет каких-то линуксовых зависимостей в этом образе, а ставить их тоже затея хз, они могут за собой потянуть ещё и ещё на таком маленьком образе.&lt;/p&gt;
+&lt;p&gt;в итоге попробовал &lt;strong&gt;python:3.8-slim&lt;/strong&gt; и всё взлетело без лишнего пука —  вес образа с приложением 294Метра, собирается на ssd за 15сек.&lt;/p&gt;
+&lt;h4&gt;короче мораль такая&lt;/h4&gt;
+&lt;p&gt;если в проекте используется только стандартная питоновская библиотека или обертки над ней, то можно юзать &lt;strong&gt;alpine&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;если есть какие-то зависимости, но их не так чтобы до хуя, то можно попробовать &lt;strong&gt;slim&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;если крупный проект с овердохуя зависимостями, то &lt;strong&gt;стандартный образ&lt;/strong&gt;.&lt;/p&gt;
+&lt;h5&gt;#docker #python&lt;/h5&gt;
+&lt;p&gt;&lt;a href="https://hub.docker.com/_/python"&gt;Dockerhub python&lt;/a&gt;&lt;/p&gt;</content></entry></feed>
